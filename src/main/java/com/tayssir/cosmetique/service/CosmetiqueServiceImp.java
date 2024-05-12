@@ -5,92 +5,73 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tayssir.cosmetique.entities.Article;
+import com.tayssir.cosmetique.entities.Cosmetique;
 import com.tayssir.cosmetique.entities.Classification;
 import com.tayssir.cosmetique.repos.CosmetiqueRepository;
 
 @Service
-public class CosmetiqueServiceImp implements  CosmetiqueService{
+public class CosmetiqueServiceImp implements CosmetiqueService {
 
-	
-	@Autowired
-	CosmetiqueRepository cosmetiqueRepository;
-	
-	
-	@Override
-	public Article saveCosmetique(Article A) {
-		return cosmetiqueRepository.save(A);
-	}
+    @Autowired
+    CosmetiqueRepository cosmetiqueRepository;
 
-	@Override
-	public Article updateCosmetique(Article A) {
-		return cosmetiqueRepository.save(A);
-	}
+    @Override
+    public Cosmetique saveCosmetique(Cosmetique cosmetique) {
+        return cosmetiqueRepository.save(cosmetique);
+    }
 
-	@Override
-	public void deleteCosmetique(Article A) {
-		cosmetiqueRepository.delete(A);
-		
-	}
+    @Override
+    public Cosmetique updateCosmetique(Cosmetique cosmetique) {
+        return cosmetiqueRepository.save(cosmetique);
+    }
 
-	@Override
-	public void deleteCosmetiqueById(Long id) {
-		cosmetiqueRepository.deleteById(id);
-		
-	}
+    @Override
+    public void deleteCosmetique(Cosmetique cosmetique) {
+        cosmetiqueRepository.delete(cosmetique);
+    }
 
-	@Override
-	public Article getCosmetique(Long id) {
-		
-		return cosmetiqueRepository.findById(id).get();
+    @Override
+    public void deleteCosmetiqueById(Long id) {
+        cosmetiqueRepository.deleteById(id);
+    }
 
-	}
+    @Override
+    public Cosmetique getCosmetique(Long id) {
+        return cosmetiqueRepository.findById(id).orElse(null);
+    }
 
-	@Override
-	public List<Article> getAllCosmetique() {
-		
-		return cosmetiqueRepository.findAll();
-	}
+    @Override
+    public List<Cosmetique> getAllCosmetique() {
+        return cosmetiqueRepository.findAll();
+    }
 
-	@Override
-	public List<Article> findByNomarticle(String nomarticle) {
+    @Override
+    public List<Cosmetique> findByNomCosmetique(String nomCosmetique) {
+        return cosmetiqueRepository.findByNomCosmetiqueContains(nomCosmetique);
+    }
 
-		return cosmetiqueRepository.findByNomarticleContains(nomarticle);
-	}
+    @Override
+    public List<Cosmetique> findByNomCosmetiqueContains(String nomCosmetique) {
+        return cosmetiqueRepository.findByNomCosmetiqueContains(nomCosmetique);
+    }
 
-	@Override
-	public List<Article> findByNomarticleContains(String nomarticle) {
-		return cosmetiqueRepository.findByNomarticleContains(nomarticle);
-	}
+    @Override
+    public List<Cosmetique> findByClassification(Classification classification) {
+        return cosmetiqueRepository.findByClassification(classification);
+    }
 
-	/*
-	 * @Override public List<Article> findByNomPrix(String nom, Double prix) {
-	 * 
-	 * return cosmetiqueRepository.findByNomPrix(nom, prix); }
-	 */
+    @Override
+    public List<Cosmetique> findByClassification_IdClas(long idClas) {
+        return cosmetiqueRepository.findByClassification_IdClas(idClas);
+    }
 
-	@Override
-	public List<Article> findByClassification(Classification classification) {
-	
-		return cosmetiqueRepository.findByClassification(classification);
-	}
+    @Override
+    public List<Cosmetique> findByOrderByNomCosmetiqueAsc() {
+        return cosmetiqueRepository.findByOrderByNomCosmetiqueAsc();
+    }
 
-	@Override
-	public List<Article> findByClassification_IdClas(long idClas) {
-		
-		return cosmetiqueRepository.findByClassification_IdClas(idClas);
-	}
-
-	@Override
-	public List<Article> findByOrderByNomarticleAsc() {
-		
-		return cosmetiqueRepository.findByOrderByNomarticleAsc();
-	}
-
-	@Override
-	public List<Article> trierArticleNomsPrix() {
-		
-		return cosmetiqueRepository.trierArticleNomsPrix();
-	}
-
+    @Override
+    public List<Cosmetique> trierCosmetiquesNomsPrix() {
+        return cosmetiqueRepository.trierCosmetiquesNomsPrix();
+    }
 }

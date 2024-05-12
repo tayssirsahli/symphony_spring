@@ -27,7 +27,7 @@ public class Classification {
     
     @JsonIgnore
     @OneToMany(mappedBy = "classification")
-    private List<Article> cosmetiques;
+    private List<Cosmetique> cosmetiques;
 	
     public Classification() {
 		super();
@@ -64,11 +64,11 @@ public class Classification {
 		this.descriptionClas = descriptionClas;
 	}
 
-	public List<Article> getCosmetiques() {
+	public List<Cosmetique> getCosmetiques() {
 		return cosmetiques;
 	}
 
-	public void setCosmetiques(List<Article> cosmetiques) {
+	public void setCosmetiques(List<Cosmetique> cosmetiques) {
 		this.cosmetiques = cosmetiques;
 	}
     

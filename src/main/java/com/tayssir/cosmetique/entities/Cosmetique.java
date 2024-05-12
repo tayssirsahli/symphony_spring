@@ -10,32 +10,32 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Article {
+public class Cosmetique {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idarticle;
-    private String nomarticle;
-    private Double prixarticle;
+    private Long idCosmetique;
+    private String nomCosmetique;
+    private Double prixCosmetique;
     private Date dateCreation;
    
     @ManyToOne
     @JoinColumn(name = "classification_id_clas")
     private Classification classification;
 
-    public Article() {
+    public Cosmetique() {
         super();
     }
 
-    public Article(String nomarticle, Double prixarticle, Date dateCreation) {
+    public Cosmetique(String nomCosmetique, Double prixCosmetique, Date dateCreation) {
         super();
-        this.nomarticle = nomarticle;
-        this.prixarticle = prixarticle;
+        this.nomCosmetique = nomCosmetique;
+        this.prixCosmetique = prixCosmetique;
         this.dateCreation = dateCreation;
     }
 
-    public Long getIdarticle() {
-        return idarticle;
+    public Long getIdCosmetique() {
+        return idCosmetique;
     }
 
     public Classification getClassification() {
@@ -46,24 +46,24 @@ public class Article {
         this.classification = classification;
     }
 
-    public void setIdarticle(Long idarticle) {
-        this.idarticle = idarticle;
+    public void setIdCosmetique(Long idCosmetique) {
+        this.idCosmetique = idCosmetique;
     }
 
-    public String getNomarticle() {
-        return nomarticle;
+    public String getNomCosmetique() {
+        return nomCosmetique;
     }
 
-    public void setNomarticle(String nomarticle) {
-        this.nomarticle = nomarticle;
+    public void setNomCosmetique(String nomCosmetique) {
+        this.nomCosmetique = nomCosmetique;
     }
 
-    public Double getPrixarticle() {
-        return prixarticle;
+    public Double getPrixCosmetique() {
+        return prixCosmetique;
     }
 
-    public void setPrixarticle(Double prixarticle) {
-        this.prixarticle = prixarticle;
+    public void setPrixCosmetique(Double prixCosmetique) {
+        this.prixCosmetique = prixCosmetique;
     }
 
     public Date getDateCreation() {
@@ -76,7 +76,7 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article [idarticle=" + idarticle + ", nomarticle=" + nomarticle + ", prixarticle=" + prixarticle
+        return "Cosmetique [idCosmetique=" + idCosmetique + ", nomCosmetique=" + nomCosmetique + ", prixCosmetique=" + prixCosmetique
                 + ", dateCreation=" + dateCreation + "]";
     }
 }

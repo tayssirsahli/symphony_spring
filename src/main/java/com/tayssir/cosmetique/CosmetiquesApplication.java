@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
-import com.tayssir.cosmetique.entities.Article;
+import com.tayssir.cosmetique.entities.Cosmetique;
 
 @SpringBootApplication
 public class CosmetiquesApplication implements CommandLineRunner{
@@ -21,7 +21,7 @@ public class CosmetiquesApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		repositoryRestConfiguration.exposeIdsFor(Article.class);
+		repositoryRestConfiguration.exposeIdsFor(Cosmetique.class);
 	}
 
 }
